@@ -4,9 +4,8 @@ import java.util.Arrays;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
-import java.util.stream.IntStream;
 
-public class MergJob {
+public class MergeSortFJP {
 
    public void runMergeSort(int[] array){
        final SortingTask taskToExecute = new SortingTask(array);
@@ -16,7 +15,6 @@ public class MergJob {
    }
 
     private static void mergeResult(int[] actual, int []first, int[]second, int middle, int subSize){
-
         int i = 0, j = 0, k = 0;
 
         while (i < middle && j < subSize) {
@@ -34,7 +32,6 @@ public class MergJob {
             actual[k++] = second[j++];
         }
     }
-
 
     private static class SortingTask extends RecursiveAction {
         private final int[] taskArray;
