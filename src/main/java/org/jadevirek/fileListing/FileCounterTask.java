@@ -42,6 +42,9 @@ public class FileCounterTask extends RecursiveTask<Long> {
         }
       }
       for (ForkJoinTask<Long> task : forkedTasks) {
+    // merge operation return back
+
+        // tools JAVA MENTORING
         totalFileBytes += task.join();
       }
       this.totalSize.set(totalFileBytes);
